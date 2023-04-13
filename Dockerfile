@@ -1,3 +1,7 @@
-FROM openjdk:8
-ADD target/KDAssignment-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+FROM java:8-jdk
+RUN mkdir /app
+WORKDIR /app
+COPY target/KDAssignment-0.0.1-SNAPSHOT /app
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "KDAssignment-0.0.1-SNAPSHOT.jar"]
